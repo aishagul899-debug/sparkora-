@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Aisha Gul Music Academy — All-in-One Demo</title>
+
+<!-- Favicon -->
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120'><circle cx='60' cy='60' r='50' fill='%237f5cff'/></svg>">
+
+<!-- ==================== CSS ==================== -->
+<style>
+:root{
+--bg:#071029;--panel: rgba(255,255,255,0.03);
+--neon1:#7f5cff;--neon2:#ff6b6b;--accent:#00ffd5;
+--muted: rgba(255,255,255,0.78);--glass: rgba(255,255,255,0.04);
+--radius:14px;
+}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;font-family:Inter,sans-serif;background:linear-gradient(180deg,var(--bg),#051025);color:#e6eef8;scroll-behavior:smooth;}
+.header{position:sticky;top:0;z-index:90;display:flex;align-items:center;gap:16px;padding:12px 20px;background:linear-gradient(180deg,rgba(255,255,255,0.01),transparent);border-bottom:1px solid var(--glass);backdrop-filter: blur(6px);}
+.logo{display:flex;align-items:center;gap:12px;cursor:pointer;}
+.logo svg{height:48px;width:auto;display:block;}
+.brand{font-weight:800;font-size:18px;}
+.nav{margin-left:auto;display:flex;gap:10px;align-items:center;}
+.nav a{color:var(--muted);text-decoration:none;padding:8px 12px;border-radius:10px;font-weight:600;transition:all .18s;}
+.nav a:hover{background:linear-gradient(90deg,var(--neon2),var(--neon1));color:#fff;transform:translateY(-3px);}
+.btn-buy{background:linear-gradient(90deg,var(--neon2),var(--neon1));padding:8px 14px;color:#0b0710;border-radius:10px;}
+
+.hero{padding:46px 20px;text-align:center}
+.title{font-size:32px;margin:6px 0}
+.subtitle{color:var(--muted);max-width:860px;margin:6px auto}
+.cta{margin-top:18px;display:flex;gap:12px;justify-content:center}
+
+.container{max-width:1200px;margin:20px auto;padding:12px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
+.card{background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);padding:18px;border-radius:var(--radius);border:1px solid rgba(255,255,255,0.03);box-shadow:0 10px 30px rgba(0,0,0,0.6);}
+.page-title{font-size:22px;margin:8px 0;text-align:center}
+.section{padding:18px 0}
+.footer{padding:26px 12px;text-align:center;color:#9fb8d9;margin-top:40px}
+
+/* Piano */
+.piano{display:flex;gap:6px;justify-content:center;padding:18px;perspective:1000px}
+.key{width:56px;height:200px;background:#fff;border-radius:8px;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;font-weight:800;color:#000;cursor:pointer;box-shadow:0 12px 30px rgba(0,0,0,0.6);transform-origin:center bottom;transition:transform .12s, box-shadow .12s;user-select:none}
+.key .label{font-size:12px;padding-bottom:8px;color:#333}
+.key.black{width:40px;height:120px;margin-left:-20px;margin-right:-20px;background:#111;color:#fff;transform:translateY(-40px);z-index:30}
+.key:active{transform:translateY(-8px) rotateX(6deg)}
+.piano-row{display:flex;justify-content:center;gap:6px;align-items:flex-end}
+
+/* Drums */
+.drum-kit{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;padding:18px}
+.drum-pad{width:130px;height:110px;border-radius:12px;background:linear-gradient(180deg,#fff,#eee);color:#000;display:flex;align-items:center;justify-content:center;font-weight:800;cursor:pointer;box-shadow:0 10px 30px rgba(0,0,0,0.5);user-select:none;transition:all .2s;}
+.drum-pad:hover{box-shadow:0 0 30px var(--neon1),0 0 50px var(--neon2);transform:scale(1.08);}
+
+/* Buttons */
+.btn{display:inline-block;padding:10px 14px;border-radius:10px;font-weight:800;border:0;cursor:pointer}
+.btn-primary{background:linear-gradient(90deg,var(--neon2),var(--neon1));color:#08050a;box-shadow:0 10px 30px rgba(127,92,255,0.12)}
+.btn-ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted)}
+
+/* Responsive */
+@media(max-width:880px){.key{height:140px;width:44px}.key.black{height:86px;width:28px}.title{font-size:22px}.nav{display:none}}
+</style>
+
+</head>
+<body>
+
+<!-- ========== HEADER / NAV ========== -->
+<header class="header">
+  <div class="logo" onclick="router('home')">
+    <svg viewBox="0 0 400 120" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="lg" x1="0" x2="1"><stop offset="0" stop-color="#ff6b6b"/><stop offset="1" stop-color="#7f5cff"/></linearGradient></defs>
+    <rect width="100%" height="100%" rx="18" fill="url(#lg)"/>
+    <g transform="translate(28,18)" fill="#fff" font-family="Segoe UI, Roboto, Arial">
+    <text x="96" y="48" font-size="34" font-weight="700">Aisha Gul Music</text>
+    <text x="96" y="76" font-size="12" opacity="0.95">Play • Learn • Create</text>
+    </g></svg>
+  </div>
+  <div class="brand">Aisha Gul Music Academy</div>
+  <nav class="nav">
+    <a href="#home" onclick="router('home')">Home</a>
+    <a href="#piano" onclick="router('piano')">Piano</a>
+    <a href="#drums" onclick="router('drums')">Drums</a>
+    <a href="#guitar" onclick="router('guitar')">Guitar</a>
+    <a href="#courses" onclick="router('courses')">Courses</a>
+    <a href="#pricing" onclick="router('pricing')">Pricing</a>
+    <a href="#reviews" onclick="router('reviews')">Testimonials</a>
+    <a href="#buy" onclick="router('buy')" class="btn-buy">Buy</a>
+  </nav>
+</header>
+
+<!-- ==================== MAIN SECTIONS ==================== -->
+<main id="app">
+
+<!-- Home -->
+<section id="home" class="section hero">
+<div class="container">
+<h1 class="title">Learn Piano • Drums • Guitar Online</h1>
+<p class="subtitle">Interactive instruments, recording, loops, courses — all in your browser. Fully responsive & demo-ready for selling.</p>
+<div class="cta">
+<button class="btn btn-primary" onclick="router('piano')">Try Piano</button>
+<button class="btn btn-ghost" onclick="router('pricing')">See Pricing</button>
+</div>
+</div>
+</section>
+
+<!-- Piano -->
+<section id="piano" class="section" style="display:none">
+<div class="container">
+<h2 class="page-title">🎹 Virtual Piano</h2>
+<div class="card">
+<div id="piano-root" class="piano-row"></div>
+<div class="controls">
+<button id="record-btn" class="btn btn-primary">Record</button>
+<button id="metronome-toggle" class="btn btn-ghost">Metronome</button>
+</div>
+<div id="recordings" class="recordings"></div>
+</div>
+</div>
+</section>
+
+<!-- Drums -->
+<section id="drums" class="section" style="display:none">
+<div class="container">
+<h2 class="page-title">🥁 Virtual Drums</h2>
+<div class="card drum-kit" id="drum-kit"></div>
+<div class="controls">
+<button class="btn btn-primary" onclick="playBeat()">Play Demo Beat</button>
+</div>
+</div>
+</section>
+
+<!-- Guitar -->
+<section id="guitar" class="section" style="display:none">
+<div class="container">
+<h2 class="page-title">🎸 Virtual Guitar</h2>
+<div class="card" id="guitar-root">
+<div style="display:flex;gap:10px;justify-content:center;align-items:center;flex-wrap:wrap">
+<div class="key" data-gnote="G1">G1</div>
+<div class="key" data-gnote="G2">G2</div>
+<div class="key" data-gnote="G3">G3</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Courses -->
+<section id="courses" class="section" style="display:none">
+<div class="container">
+<h2 class="page-title">📚 Courses</h2>
+<div class="grid">
+<div class="card"><h3>Piano: Beginner → Pro</h3><p>Learn chords, scales, songs, performance.</p></div>
+<div class="card"><h3>Drums: Grooves & Fills</h3><p>Rudiments, beats, loops.</p></div>
+<div class="card"><h3>Guitar: Chords & Solo</h3><p>Strumming, tabs, solo techniques.</p></div>
+</div>
+</div>
+</section>
+
+<!-- Pricing -->
+<section id="pricing" class="section" style="display:none">
+<div class="container">
+<h2 class="page-title">💼 Pricing</h2>
+<div class="grid">
+<div class="card"><h3>Free</h3><p>Mini studio, limited features</p></div>
+<div class="card"><h3>Premium</h3><p>Full instruments + recording + $9.99/mo</p></div>
+<div class="card"><h3>Pro</h3><p>1:1 coaching + $29.99/mo</p></div>
+</div>
+<div class="controls"><button class="btn btn-primary" onclick="router('buy')">Buy / Subscribe</button></div>
+</div>
+</section>
+
+<!-- Testimonials -->
+<section id="reviews" class="section" style="display:none">
+<div class="container">
+<h2 class="page-title">🌟 Testimonials</h2>
+<div class="grid">
+<div class="card"><strong>Ayesha</strong><p>“I learned a song in one week!”</p></div>
+<div class="card"><strong>Bilal</strong><p>“Recording helped me make my first beat.”</p></div>
+<div class="card"><strong>Sara</strong><p>“Lovely design & easy interface.”</p></div>
+</div>
+</div>
+</section>
+
+<!-- Buy / Checkout -->
+<section id="buy" class="section" style="display:none">
+<div class="container">
+<h2 class="page-title">💳 Buy / Checkout (Demo)</h2>
+<div class="card">
+<p>This is a demo checkout. To accept real payments, integrate Stripe / JazzCash / Easypaisa securely via serverless functions.</p>
+<button class="btn btn-primary" onclick="mockBuy()">Simulate Purchase</button>
+<div id="buy-result" style="margin-top:12px"></div>
+</div>
+</div>
+</section>
+
+<!-- Contact -->
+<section id="contact" class="section" style="display:none">
+<div class="container">
+<h2 class="page-title">☎ Contact</h2>
+<div class="card"><p>Email: <strong>hello@aishamusic.example</strong><br>Phone: <strong>+92-300-0000000</strong></p></div>
+</div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+© 2025 Aisha Gul — Aisha's Music Academy · Demo.
+</footer>
+
+<!-- ==================== JS ==================== -->
+<script>
+const sections=['home','piano','drums','guitar','courses','pricing','reviews','buy','contact'];
+function router(name){sections.forEach(s=>{const el=document.getElementById(s);if(el)el.style.display=(s===name)?'':'none'});location.hash=name;window.scrollTo({top:0,behavior:'smooth'});} 
+window.addEventListener('hashchange',()=>router(location.hash.replace('#','')||'home'));
+router(location.hash.replace('#','')||'home');
+
+// Audio Context
+const audioCtx=new (window.AudioContext||window.webkitAudioContext)();
+const masterGain=audioCtx.createGain();masterGain.gain.value=0.9;masterGain.connect(audioCtx.destination);
+const dest=audioCtx.createMediaStreamDestination();
+masterGain.connect(dest);
+
+// Piano notes
+const noteFreq={C:261.63,D:293.66,E:329.63,F:349.23,G:392.00,A:440.00,B:493.88,C2:523.25,G1:196.00,G2:98.00,G3:392.00};
+function playPiano(note){const now=audioCtx.currentTime;const osc=audioCtx.createOscillator();const gain=audioCtx.createGain();osc.type='sine';osc.frequency.value=noteFreq[note]||440;osc.connect(gain);gain.connect(masterGain);gain.gain.setValueAtTime(0.0001,now);gain.gain.exponentialRampToValueAtTime(0.5,now+0.02);gain.gain.exponentialRampToValueAtTime(0.0001,now+1);osc.start(now);osc.stop(now+1.1);}
+function playGuitar(note){const freq=noteFreq[note]||220;const len=Math.round(audioCtx.sampleRate/freq);const buffer=audioCtx.createBuffer(1,len*4,audioCtx.sampleRate);const data=buffer.getChannelData(0);for(let i=0;i<data.length;i++){data[i]=(Math.random()*2-1)*Math.pow(1-i/data.length,0.6);}const src=audioCtx.createBufferSource();src.buffer=buffer;const gain=audioCtx.createGain();gain.gain.value=1.2;src.connect(gain);gain.connect(masterGain);src.loop=true;src.loopEnd=len/audioCtx.sampleRate;src.start();setTimeout(()=>{try{src.stop();}catch(e){}},900);}
+function playDrum(type){const now=audioCtx.currentTime;if(type==='kick'){const osc=audioCtx.createOscillator();const gain=audioCtx.createGain();osc.type='sine';osc.frequency.setValueAtTime(150,now);osc.frequency.exponentialRampToValueAtTime(40,now+0.5);gain.gain.setValueAtTime(1.0,now);gain.gain.exponentialRampToValueAtTime(0.0001,now+0.5);osc.connect(gain);gain.connect(masterGain);osc.start(now);osc.stop(now+0.6);}else if(type==='snare'){const bufferSize=audioCtx.sampleRate*0.2;const buffer=audioCtx.createBuffer(1,bufferSize,audioCtx.sampleRate);const data=buffer.getChannelData(0);for(let i=0;i<bufferSize;i++){data[i]=(Math.random()*2-1)*Math.exp(-3*i/bufferSize);}const src=audioCtx.createBufferSource();src.buffer=buffer;const gain=audioCtx.createGain();gain.gain.value=0.9;src.connect(gain);gain.connect(masterGain);src.start();src.stop(audioCtx.currentTime+0.2);}else if(type==='hihat'){const bufferSize=audioCtx.sampleRate*0.1;const buffer=audioCtx.createBuffer(1,bufferSize,audioCtx.sampleRate);const data=buffer.getChannelData(0);for(let i=0;i<bufferSize;i++){data[i]=(Math.random()*2-1)*Math.pow(1-i/bufferSize,2);}const src=audioCtx.createBufferSource();src.buffer=buffer;src.connect(masterGain);src.start();src.stop(audioCtx.currentTime+0.1);}}
+
+// Build Piano UI
+function buildPianoUI(){const pianoRoot=document.getElementById('piano-root');if(!pianoRoot)return;pianoRoot.innerHTML='';const whiteNotes=['C','D','E','F','G','A','B','C2'];const keysDiv=document.createElement('div');keysDiv.className='piano';whiteNotes.forEach(n=>{const k=document.createElement('div');k.className='key';k.dataset.note=n;k.innerHTML='<div class="label">'+n+'</div>';k.onclick=()=>playPiano(n);keysDiv.appendChild(k);});pianoRoot.appendChild(keysDiv);}
+buildPianoUI();
+
+// Build Drums UI
+function buildDrumsUI(){const drums=['kick','snare','hihat'];const drumRoot=document.getElementById('drum-kit');if(!drumRoot)return;drumRoot.innerHTML='';drums.forEach(d=>{const k=document.createElement('div');k.className='drum-pad';k.innerText=d.toUpperCase();k.onclick=()=>playDrum(d);drumRoot.appendChild(k);});}
+buildDrumsUI();
+
+// Mock buy
+function mockBuy(){document.getElementById('buy-result').innerText='✅ Demo purchase completed! Thank you!';}
+
+// Demo Beat
+function playBeat(){playDrum('kick');setTimeout(()=>playDrum('snare'),300);setTimeout(()=>playDrum('hihat'),600);}
+</script>
+
+</body>
+</html>
+
+function playPiano(note){
+  const audio = new Audio(`/sounds/piano/${note}.mp3`);
+  audio.play();
+}
+
+function playGuitar(note){
+  const audio = new Audio(`/sounds/guitar/${note}.mp3`);
+  audio.play();
+}
+
+function playDrum(type){
+  const audio = new Audio(`/sounds/drums/${type}.mp3`);
+  audio.play();
+}
+
+<section id="admin" style="display:none">
+<div class="container">
+<h2 class="page-title">Admin Dashboard (Demo)</h2>
+<div class="card">
+<h3>Add Lessons</h3>
+<input type="text" id="lessonName" placeholder="Lesson Title">
+<button onclick="addLesson()">Add Lesson</button>
+<ul id="lessonsList"></ul>
+</div>
+
+<div class="card">
+<h3>Students</h3>
+<ul id="studentsList"></ul>
+</div>
+
+<div class="card">
+<h3>Payments (Demo)</h3>
+<button onclick="mockPayment()">Simulate Payment</button>
+<div id="paymentResult"></div>
+</div>
+</div>
+</section>
+
+<script>
+function addLesson(){
+  const name=document.getElementById('lessonName').value;
+  if(!name) return;
+  let lessons=JSON.parse(localStorage.getItem('lessons')||'[]');
+  lessons.push(name);
+  localStorage.setItem('lessons',JSON.stringify(lessons));
+  renderLessons();
+  document.getElementById('lessonName').value='';
+}
+function renderLessons(){
+  const list=document.getElementById('lessonsList');
+  list.innerHTML='';
+  let lessons=JSON.parse(localStorage.getItem('lessons')||'[]');
+  lessons.forEach(l=>{
+    const li=document.createElement('li');li.textContent=l;list.appendChild(li);
+  });
+}
+renderLessons();
+
+function mockPayment(){
+  document.getElementById('paymentResult').innerText='✅ Demo payment received!';
+}
+
+function renderStudents(){
+  const list=document.getElementById('studentsList');
+  list.innerHTML='';
+  let students=['Ayesha','Bilal','Sara']; // demo
+  students.forEach(s=>{
+    const li=document.createElement('li');li.textContent=s;list.appendChild(li);
+  });
+}
+renderStudents();
+</script>
+ /AishaGulMusicAcademy
+    index.html
+    /css/style.css
+    /js/app.js
+    /sounds/piano/*.mp3
+    /sounds/drums/*.mp3
+    /sounds/guitar/*.mp3
+    /images/logo.svg
+
+</body>
+</html>
